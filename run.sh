@@ -7,7 +7,7 @@ stop_stage=100
 
 if [ ${stage} -le -1 ] && [ ${stop_stage} -ge -1 ];then
    echo "prepare kaldi format for  magicdata-RAMC data"
-   python prepare_magicdata_180h.py 
+   python prepare_magicdata_180h.py
 fi
 
 if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ];then
@@ -18,7 +18,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ];then
       python prepared_vad_data_for_magicdata-RAMC.py \
 	      --data_path $data_path \
 	      --type $name
-   done 
+   done
 fi
 if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ];then
    echo "train a vad model using magicdata-RAMC dataset "
@@ -26,7 +26,7 @@ if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ];then
 
 fi
 
- 
+
 if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 2 ];then
    echo "generate vad json file using pretrain transformer vad model "
    #echo "transformer vad model is from https://github.com/voithru/voice-activity-detection/blob/main/tests/checkpoints/vad/sample.checkpoint"
@@ -54,3 +54,6 @@ if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 2 ];then
 
 ## the above script is used to display how to train a vad using a dataset (i.e. magicdata-RAMC diarization dataset)
 
+
+## How to use the above predict vad json file, the example(a diarization task) is display at my other repositories
+# https://github.com/shanguanma/fairseq_speechtext/tree/main/examples/speaker_diarization/scripts/magicdata-RAMC
