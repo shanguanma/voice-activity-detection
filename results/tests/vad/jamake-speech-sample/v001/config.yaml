@@ -1,0 +1,58 @@
+batch_size: 1024
+check_val_every_n_epoch: 1
+context_resolution:
+  context_window_half_frames: 19
+  context_window_jump_frames: 9
+  context_window_shift_frames: 39
+data_dir: null
+dataset_chunk_size: 1
+epochs: 2
+feature_extractor:
+  cachedir: null
+  silence_remover: null
+  spec_augment: null
+  stack_differences: false
+  temporal_differences: false
+  transform:
+    hop_ms: 10
+    n_fft: 512
+    n_mels: 80
+    n_mfcc: null
+    name: log-mel
+    window_ms: 25
+gradient_accumulation_steps: 1
+gradient_clip_val: null
+log_interval: 500
+lr_scheduler: null
+model:
+  acam: null
+  boosted_dnn: null
+  dnn: null
+  name: self-attention
+  self_attention:
+    d_model: 128
+    dropout: 0.5
+    num_layers: 3
+noise_injector:
+  max_snr: 6.0
+  min_snr: -5.0
+  noise_data_dir: null
+  noise_path: tests/data/YoutubeEditorSoundEffectsSample/data_list.txt
+  noise_ratio: 0.2
+num_sanity_check_steps: 3
+num_workers: 0
+optimizer:
+  adam:
+    eps: 1.0e-09
+    weight_decay_val: 0.0
+  lr: 0.0001
+  name: adam
+random_seed: 0
+reset_lr_scheduling: false
+resume_from_checkpoint: null
+run_name: vad/jamake-speech-sample
+runs_dir: results/tests
+train_path: vad-train-sample.jsonl
+train_val_dir: tests/data/JamakeSpeechSample
+use_amp: false
+val_path: vad-train-sample.jsonl
